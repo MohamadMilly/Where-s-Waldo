@@ -1,6 +1,7 @@
 import { Play } from "lucide-react";
 import { PageWrapper } from "../components/shared/PageWrapper";
 import { RouteLink } from "../components/ui/RouteLink";
+import waldoLandingImage from "../assets/waldo_landing.webp";
 
 export function Landing() {
   return (
@@ -25,7 +26,7 @@ export function Landing() {
         <div className="shrink max-w-[250px] sm:max-w-[350px] md:max-w-[450px] w-full border-b-4 border-purple-400">
           <img
             className="max-w-[200px] sm:max-w-[240px] md:max-w-[280px] mx-auto -mb-5"
-            src="https://static.wikia.nocookie.net/vsbattles/images/b/b6/9fsGLcZ.png/revision/latest?cb=20171110160025"
+            src={waldoLandingImage}
             alt="Where's Waldo"
           />
         </div>
