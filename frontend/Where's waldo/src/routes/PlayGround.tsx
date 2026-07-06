@@ -21,24 +21,18 @@ export function PlayGround() {
   const { scene, isLoading, error: SceneFetchError } = useScene({ slug: slug });
   const [guessedCharacters, setGuessedCharacters] = useState<Character[]>([]);
   const { user } = useUser();
-  const { mutate: createScore, error: scoreCreationError } = useCreateScore();
+  const { mutate: createScore } = useCreateScore();
   const {
     mutate: start,
-    isPending: isStartingPending,
-    error: startGameError,
+
     data: gameStartData,
   } = useStartGame();
   const {
     mutate: end,
-    isPending: isEndingPending,
-    error: endGameError,
+
     data: endGameData,
   } = useEndGame();
-  const {
-    mutate: verify,
-    isPending: isVerificationPending,
-    error: verificationError,
-  } = useVerify();
+  const { mutate: verify } = useVerify();
 
   const isReadytoStartSession = !isLoading && scene && isImageLoaded; // findout why isStartingPending break the component
 
