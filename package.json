@@ -5,7 +5,7 @@
     "start-frontend": "cd frontend/\"Where's waldo\" && npm run dev"
   },
   "workspaces": [
-    "frontend",
+    "frontend/\"Where's waldo\"",
     "backend",
     "shared-types"
   ]
