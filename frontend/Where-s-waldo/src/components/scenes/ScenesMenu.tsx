@@ -12,9 +12,15 @@ export function ScenesMenu({ scenes, isLoading, error }: ScenesMenuProps) {
   if (error)
     return <p className="text-lg text-red-500">Error: {error.message}</p>;
   return (
-    <ul className="flex justify-center md:justify-start flex-wrap w-full mt-10 gap-3">
+    <ul className="flex justify-center md:justify-start flex-wrap w-full mt-10 gap-3 px-3">
       {scenes.map((scene, index) => {
-        return <SceneCard animationDelay={index * 300} scene={scene} />;
+        return (
+          <SceneCard
+            key={scene.id}
+            animationDelay={index * 300}
+            scene={scene}
+          />
+        );
       })}
     </ul>
   );

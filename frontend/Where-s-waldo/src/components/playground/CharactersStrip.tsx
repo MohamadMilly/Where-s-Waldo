@@ -1,8 +1,8 @@
-import CharacterWenda from "../../assets/Character-Wenda.webp";
-import CharacterOdlaw from "../../assets/Character-Odlaw.webp";
-import CharacterWizard from "../../assets/Character-Wizard.webp";
-import CharacterWoof from "../../assets/Character-Woof.webp";
-import CharacterWaldo from "../../assets/Character-Waldo.webp";
+import CharacterWenda from "../../assets/images/Character-Wenda.webp";
+import CharacterOdlaw from "../../assets/images/Character-Odlaw.webp";
+import CharacterWizard from "../../assets/images/Character-Wizard.webp";
+import CharacterWoof from "../../assets/images/Character-Woof.webp";
+import CharacterWaldo from "../../assets/images/Character-Waldo.webp";
 
 import type { Character } from "@app/types";
 import type { JSX } from "react/jsx-runtime";

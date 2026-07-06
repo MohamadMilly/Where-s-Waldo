@@ -13,6 +13,8 @@ import { CharactersStrip } from "../components/playground/CharactersStrip";
 import { WinDialog } from "../components/playground/dialogs/WinDialog";
 import { useUser } from "../contexts/UserContext";
 import { useCreateScore } from "../hooks/api/useCreateScore";
+import successAudio from "../assets/audios/correct_answer.mp3";
+import failureAudio from "../assets/audios/wrong_answer.mp3";
 
 export function PlayGround() {
   const { slug } = useParams();
@@ -97,10 +99,19 @@ export function PlayGround() {
         {
           onSuccess: (data) => {
             if (data.isValid) {
+              const successAudioObject = new Audio(successAudio);
+              successAudioObject.play().catch((err) => {
+                console.log("Audio Error: ", err);
+              });
               setGuessedCharacters((prev) => [
                 ...prev,
                 data.character as Character,
               ]);
+            } else {
+              const failureAudioObject = new Audio(failureAudio);
+              failureAudioObject.play().catch((err) => {
+                console.log("Audio Error: ", err);
+              });
             }
           },
         },
