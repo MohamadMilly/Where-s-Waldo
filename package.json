@@ -3,10 +3,10 @@
   "private": true,
   "scripts": {
     "start-frontend": "cd frontend/\"Where's waldo\" && npm run dev",
-    "build": "npm run build --workspace=\"frontend/\\\"Where's waldo\\\"\""
+    "build": "npm run build --workspace=frontend/*"
   },
   "workspaces": [
-    "frontend/\"Where's waldo\"",
+    "frontend/*",
     "backend",
     "shared-types"
   ]
