@@ -2,7 +2,7 @@
   "name": "where-s-waldo-monorepo",
   "private": true,
   "scripts": {
-    "start-frontend": "cd frontend/\"Where's waldo\" && npm run dev",
+    "start-frontend": "cd frontend/Where-s-waldo && npm run dev",
     "build": "npm run build --workspace=where-s-waldo"
   },
   "workspaces": [

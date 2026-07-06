@@ -11,6 +11,7 @@ export function BoardMenu({ clickCoords, boardDimensions }: BoardMenuProps) {
   const boardHeight = boardDimensions.height ?? 0;
   const normalizedDimension = (boardWidth + boardHeight) / 2;
   const range = Math.floor(normalizedDimension * 0.03);
+  console.log(clickCoords);
   return (
     <div
       className=" z-999 transition-all duration-400"

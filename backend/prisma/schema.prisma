@@ -40,6 +40,8 @@ characters Character[]
 scores Score[]
 imageURL String
 slug String @unique
+
+
 @@map("scenes")
 }
 
@@ -49,6 +51,8 @@ name CharacterName
 scene Scene @relation(fields: [sceneId],references: [id])
 sceneId Int
 coords Int[]
+
+@@map("characters")
 }
 
 model GameSession {
@@ -57,6 +61,8 @@ sessionId String @unique
 startTime DateTime @default(now())
 endTime DateTime?
 completed Boolean @default(false)
+
+@@map("sessions")
 }
 
 /* 
