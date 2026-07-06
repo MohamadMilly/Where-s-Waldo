@@ -1,0 +1,27 @@
+import express from "express";
+import {
+  createScorePost,
+  getAllScenesGet,
+  getSceneScoresGet,
+  getSpecificSceneGet,
+} from "../controllers/scenesController.js";
+
+import { extractToken } from "../middlewares/extractToken.js";
+import { verifyToken } from "../middlewares/verifyToken.js";
+
+export const scenesRouter = express.Router();
+
+scenesRouter.get("/", getAllScenesGet);
+
+scenesRouter.get("/slug/:slug", getSpecificSceneGet);
+
+scenesRouter.get("/id/:id", getSpecificSceneGet);
+
+scenesRouter.get("/id/:id/scores", getSceneScoresGet);
+
+scenesRouter.get("/slug/:slug/scores", getSceneScoresGet);
+
+scenesRouter.use(extractToken);
+scenesRouter.use(verifyToken);
+
+scenesRouter.post("/:id/scores", createScorePost);

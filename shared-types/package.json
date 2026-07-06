@@ -1,0 +1,6 @@
+{
+  "name": "@app/types",
+  "version": "1.0.0",
+  "description": "the shared types between frontend and backend for the app",
+  "main":"index.ts"
+}

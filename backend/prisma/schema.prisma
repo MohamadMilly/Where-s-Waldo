@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+id Int @id @default(autoincrement()) 
+name String
+scores Score[]
+@@map("users")
+}
+
+model Score {
+id Int @id @default(autoincrement())
+user User @relation(fields: [userId],references: [id])
+userId Int
+scene Scene @relation(fields: [sceneId],references: [id])
+sceneId Int
+duration Int // in melliseconds 
+won Boolean
+@@map("scores")
+
+@@unique([sceneId,userId])
+}
+
+model Scene {
+id Int @id @default(autoincrement())
+name String @unique
+characters Character[]
+scores Score[]
+imageURL String
+slug String @unique
+@@map("scenes")
+}
+
+model Character {
+id Int @id @default(autoincrement())
+name CharacterName
+scene Scene @relation(fields: [sceneId],references: [id])
+sceneId Int
+coords Int[]
+}
+
+model GameSession {
+id Int @id @default(autoincrement())
+sessionId String @unique
+startTime DateTime @default(now())
+endTime DateTime?
+completed Boolean @default(false)
+}
+
+/* 
+end route 
+token (sessionId and startTime)
+query session by sessionId 
+
+*/
+
+enum CharacterName {
+WALDO
+WENDA
+ODLAW
+WOOF
+WIZARD
+}

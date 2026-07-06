@@ -1,0 +1,12 @@
+{
+  "name": "where-s-waldo-monorepo",
+  "private": true,
+  "scripts": {
+    "start-frontend": "cd frontend/\"Where's waldo\" && npm run dev"
+  },
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared-types"
+  ]
+}
