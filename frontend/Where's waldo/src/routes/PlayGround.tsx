@@ -50,7 +50,7 @@ export function PlayGround() {
     guessedCharacters.length === scene?.characters?.length;
 
   const hasWon = guessedAllCharacters && duration < 60 * 60 * 2;
- 
+
   const unGuessedCharacters =
     scene?.characters?.filter((c1) =>
       guessedCharacters.every((c2) => c1.id !== c2.id),
