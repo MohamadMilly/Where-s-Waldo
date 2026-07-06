@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router";
 import { useCreateUser } from "../../../hooks/api/useCreateUser";
 import { useUser } from "../../../contexts/UserContext";
 import { RouteLink } from "../../ui/RouteLink";
-import { LoaderCircle } from "lucide-react";
+import { Home, LoaderCircle, Trophy } from "lucide-react";
 
 export function WinDialog({ score }: { score: number }) {
   const [name, setName] = useState<string | null>(null);
@@ -52,12 +52,15 @@ export function WinDialog({ score }: { score: number }) {
                   placeholder="Write your name"
                 />
                 <Button
+                  disabled={isPendingCreatingUser}
                   className="flex items-center gap-0.5"
                   type="submit"
                   onClick={onSubmit}
                 >
                   <span>Submit</span>
-                  {isPendingCreatingUser && <LoaderCircle size={20} />}
+                  {isPendingCreatingUser && (
+                    <LoaderCircle className="animate-spin" size={20} />
+                  )}
                 </Button>
                 {userCreationError && (
                   <p className="mt-3 text-lg text-red-500">
@@ -69,11 +72,20 @@ export function WinDialog({ score }: { score: number }) {
           </form>
         )}
         <div className="mt-auto flex flex-col gap-1">
-          <RouteLink className="text-center" route={`/scoresboard/${slug}`}>
-            View Scores
+          <RouteLink
+            className="text-center py-1.5! flex items-center justify-center gap-1"
+            route={`/scoresboard/${slug}`}
+          >
+            <Trophy size={25} />
+            <span>View Scores</span>
           </RouteLink>
-          <Button type="button" onClick={() => navigate("/scenes")}>
-            Main menu
+          <Button
+            className="py-1.5! flex justify-center items-center gap-1"
+            type="button"
+            onClick={() => navigate("/scenes")}
+          >
+            <Home size={25} />
+            <span>Main menu</span>
           </Button>
         </div>
       </div>

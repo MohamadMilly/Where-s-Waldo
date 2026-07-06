@@ -10,7 +10,7 @@ export function ScenesBarContent({ scenes }: { scenes: Scene[] }) {
         const sceneName = scene.name;
         const sceneSlug = scene.slug;
         return (
-          <li className="min-w-40" key={scene.id}>
+          <li className="w-fit" key={scene.id}>
             <ScenesBarNavLink name={sceneName} slug={sceneSlug} />
           </li>
         );

@@ -13,6 +13,7 @@ export function SceneCard({ animationDelay, scene }: SceneCardProps) {
   const characters = scene.characters;
   return (
     <article
+      key={scene.id}
       style={{
         animationDelay: animationDelay + "ms" || "300ms",
       }}

@@ -12,7 +12,7 @@ export function ScoreListItem({ score, index }: ScoreListItem): JSX.Element {
   const { user } = useUser();
   const isCurrentUserScore = user?.id === score.user.id;
   return (
-    <li className="flex justify-between p-2">
+    <li key={score.id} className="flex justify-between p-2">
       <span className="text-sm bg-gray-300/20 rounded-full min-w-5 h-5 mr-2 text-center text-purple-400">
         {index + 1}
       </span>
