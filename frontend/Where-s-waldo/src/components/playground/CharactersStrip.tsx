@@ -6,6 +6,7 @@ import CharacterWaldo from "../../assets/images/Character-Waldo.webp";
 
 import type { Character } from "@app/types";
 import type { JSX } from "react/jsx-runtime";
+import { Spinner } from "../shared/Spinner";
 
 const characters_Images: Record<string, string> = {
   WALDO: CharacterWaldo,
@@ -31,9 +32,12 @@ export function CharactersStrip({
   return (
     <div className="overflow-x-auto sticky mt-10 top-0 sm:top-2 z-9999 py-1 px-3">
       {error ? (
-        <p className="text-lg">Error: {error.message}</p>
+        <p className="text-lg text-center">Error: {error.message}</p>
       ) : isLoading ? (
-        <p className="text-lg text-purple-400 text-center">Loading...</p>
+        <p className="text-lg text-purple-400 text-center flex items-center flex-col">
+          <Spinner size={24} />
+          <span>Loading...</span>
+        </p>
       ) : (
         <ul className="mx-auto w-fit flex gap-1 justify-center">
           {characters.map((character: Character) => {

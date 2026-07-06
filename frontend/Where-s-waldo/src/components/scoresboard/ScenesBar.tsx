@@ -2,6 +2,7 @@ import type { Scene } from "@app/types";
 import { ScenesBarNavLink } from "./ScenesBarNavLink";
 import { useNavigate, useParams } from "react-router";
 import { useEffect } from "react";
+import { Spinner } from "../shared/Spinner";
 
 export function ScenesBarContent({ scenes }: { scenes: Scene[] }) {
   return (
@@ -33,7 +34,7 @@ export function ScenesBar({ scenes, isLoading, error }: ScenesBarProps) {
     }
   }, [navigate, scenes, slug]);
 
-  if (isLoading) return <p className="text-purple-400 text-lg">Loading...</p>;
+  if (isLoading) return <Spinner size={24} className="flex justify-center" />;
   if (error)
     return <p className="text-red-500 text-lg">Error: {error.message}</p>;
 

@@ -1,5 +1,6 @@
 import type { Scene } from "@app/types";
 import { SceneCard } from "./SceneCard";
+import { Spinner } from "../shared/Spinner";
 
 type ScenesMenuProps = {
   scenes: Required<Scene>[];
@@ -8,7 +9,13 @@ type ScenesMenuProps = {
 };
 
 export function ScenesMenu({ scenes, isLoading, error }: ScenesMenuProps) {
-  if (isLoading) return <p className="text-lg text-purple-400">Loading...</p>;
+  if (isLoading)
+    return (
+      <p className="text-lg text-purple-400 text-center flex justify-center items-center gap-1">
+        <Spinner size={24} />
+        <span>Loading</span>
+      </p>
+    );
   if (error)
     return <p className="text-lg text-red-500">Error: {error.message}</p>;
   return (

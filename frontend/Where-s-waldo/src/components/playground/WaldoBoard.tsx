@@ -9,6 +9,7 @@ import {
 import { BoardMenu } from "./BoardMenu";
 import type { Character, Scene } from "@app/types";
 import { Check } from "lucide-react";
+import { Spinner } from "../shared/Spinner";
 
 type WaldoBoardProps = {
   scene: Required<Scene> | null;
@@ -72,9 +73,19 @@ export function WaldoBoard({
 
     return () => boardScene.removeEventListener("click", onClickBoard);
   }, [isImageLoaded, currentClickCoords]);
-  if (isLoading) return <p className="text-lg text-purple-400">Loading</p>;
+  if (isLoading)
+    return (
+      <Spinner
+        size={24}
+        className="w-full h-full flex justify-center items-center border-4 border-purple-400 rounded-md  sm:w-[calc(100%-2rem)] mx-auto mt-4"
+      />
+    );
   if (error)
-    return <p className="text-lg text-red-500">Error: {error.message}</p>;
+    return (
+      <p className="text-lg text-red-500 text-center mt-8">
+        Error: {error.message}
+      </p>
+    );
 
   if (!scene)
     return (
