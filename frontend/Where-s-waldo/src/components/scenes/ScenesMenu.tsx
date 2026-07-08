@@ -11,9 +11,9 @@ type ScenesMenuProps = {
 export function ScenesMenu({ scenes, isLoading, error }: ScenesMenuProps) {
   if (isLoading)
     return (
-      <p className="text-lg text-purple-400 text-center flex justify-center items-center gap-1">
+      <p className="text-sm text-purple-400 text-center flex justify-center items-center gap-1">
         <Spinner size={24} />
-        <span>Loading</span>
+        <span>Loading...</span>
       </p>
     );
   if (error)

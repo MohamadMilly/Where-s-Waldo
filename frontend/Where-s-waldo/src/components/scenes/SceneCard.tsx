@@ -39,7 +39,7 @@ export function SceneCard({ animationDelay, scene }: SceneCardProps) {
           </p>
         </div>
       </div>
-      <RouteLink className="text-center mt-auto" route={`/scenes/${slug}`}>
+      <RouteLink className="text-center mt-auto py-2" route={`/scenes/${slug}`}>
         Start
       </RouteLink>
     </article>

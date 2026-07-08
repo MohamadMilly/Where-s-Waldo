@@ -34,7 +34,8 @@ export function ScenesBar({ scenes, isLoading, error }: ScenesBarProps) {
     }
   }, [navigate, scenes, slug]);
 
-  if (isLoading) return <Spinner size={24} className="flex justify-center" />;
+  if (isLoading)
+    return <Spinner size={24} className="flex mt-4 justify-center" />;
   if (error)
     return <p className="text-red-500 text-lg">Error: {error.message}</p>;
 
