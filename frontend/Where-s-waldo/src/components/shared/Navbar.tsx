@@ -1,5 +1,5 @@
 import { Play, Trophy } from "lucide-react";
-import { RouteLink } from "../ui/RouteLink";
+import { RouteLink } from "../ui/RouteLink/RouteLink";
 
 export function Navbar() {
   return (

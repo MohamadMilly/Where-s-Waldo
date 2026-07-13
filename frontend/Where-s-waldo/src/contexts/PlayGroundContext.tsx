@@ -3,7 +3,7 @@ import { createContext, useContext } from "react";
 
 type PlayGroundContextType = {
   handleVerify: (characterId: number, coords: number[]) => void;
-  unGuessedCharacters: Character[];
+  unGuessedCharacters: Omit<Character, "coords">[];
   guessedCharacters: Character[];
 };
 

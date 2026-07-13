@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { Button } from "../ui/Button";
+import { Button } from "../ui/Button/Button";
 import { ArrowBigLeft } from "lucide-react";
 
 export function GoBackButton({ className = "" }: { className?: string }) {

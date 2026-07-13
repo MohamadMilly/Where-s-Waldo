@@ -1,6 +1,6 @@
 import { Play } from "lucide-react";
 import { PageWrapper } from "../components/shared/PageWrapper";
-import { RouteLink } from "../components/ui/RouteLink";
+import { RouteLink } from "../components/ui/RouteLink/RouteLink";
 import waldoLandingImage from "../assets/images/waldo_landing.webp";
 
 export function Landing() {

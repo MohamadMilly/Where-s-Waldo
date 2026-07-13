@@ -1,4 +1,4 @@
-import { RouteLink } from "../ui/RouteLink";
+import { RouteLink } from "../ui/RouteLink/RouteLink";
 import type { Scene } from "@app/types";
 
 export type SceneCardProps = {

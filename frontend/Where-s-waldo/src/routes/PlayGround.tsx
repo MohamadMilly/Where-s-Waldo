@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { Timer } from "../components/playground/Timer";
-import { WaldoBoard } from "../components/playground/WaldoBoard";
+import { Timer } from "../components/playground/Timer/Timer";
+import { WaldoBoard } from "../components/playground/WaldoBoard/WaldoBoard";
 import { GoBackButton } from "../components/shared/GoBackButton";
 import { useScene } from "../hooks/api/useScene";
 import { useParams } from "react-router";
@@ -10,7 +10,7 @@ import { useEndGame } from "../hooks/api/useEndGame";
 import { useVerify } from "../hooks/api/useVerify";
 import { PlayGroundContext } from "../contexts/PlayGroundContext";
 import { CharactersStrip } from "../components/playground/CharactersStrip";
-import { WinDialog } from "../components/playground/dialogs/WinDialog";
+import { WinDialog } from "../components/playground/dialogs/WinDialog/WinDialog";
 import { useUser } from "../contexts/UserContext";
 import { useCreateScore } from "../hooks/api/useCreateScore";
 import successAudio from "../assets/audios/correct_answer.mp3";
@@ -47,7 +47,7 @@ export function PlayGround() {
 
   const hasWon = guessedAllCharacters && duration < 60 * 60 * 2;
 
-  const unGuessedCharacters =
+  const unGuessedCharacters: Omit<Character, "coords">[] =
     scene?.characters?.filter((c1) =>
       guessedCharacters.every((c2) => c1.id !== c2.id),
     ) ?? [];

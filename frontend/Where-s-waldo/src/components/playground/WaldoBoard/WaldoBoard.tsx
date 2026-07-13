@@ -6,13 +6,13 @@ import {
   type JSX,
   type SetStateAction,
 } from "react";
-import { BoardMenu } from "./BoardMenu";
+import { BoardMenu } from "../BoardMenu/BoardMenu";
 import type { Character, Scene } from "@app/types";
 import { Check } from "lucide-react";
-import { Spinner } from "../shared/Spinner";
+import { Spinner } from "../../shared/Spinner";
 
 type WaldoBoardProps = {
-  scene: Required<Scene> | null;
+  scene: Scene | null;
   isLoading: boolean;
   error: Error | null;
   isImageLoaded: boolean;
@@ -103,6 +103,7 @@ export function WaldoBoard({
       >
         <div className="w-fit h-fit relative">
           <img
+            data-testid="board-scene"
             ref={boardSceneRef}
             onLoad={() => setIsImageLoaded(true)}
             className="h-full w-auto lg:w-full lg:h-auto max-w-none block"
@@ -119,9 +120,10 @@ export function WaldoBoard({
           {guessedCharacters.map((c) => {
             return (
               <div
+                data-testid="check-mark"
                 className="absolute text-white rounded-full w-5 h-5 bg-green-400/80 -translate-x-1/2 -translate-y-1/2"
                 style={{
-                  left: c.coords[0] / 10 + "%",
+                  left: c.coords[0] / 10 + "%", // coords coming from server is mulitplied by 1000
                   top: c.coords[1] / 10 + "%",
                 }}
               >

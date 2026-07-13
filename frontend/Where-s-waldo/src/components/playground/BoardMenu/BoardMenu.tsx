@@ -1,4 +1,4 @@
-import { usePlayGround } from "../../contexts/PlayGroundContext";
+import { usePlayGround } from "../../../contexts/PlayGroundContext";
 
 type BoardMenuProps = {
   clickCoords: number[];
@@ -11,9 +11,9 @@ export function BoardMenu({ clickCoords, boardDimensions }: BoardMenuProps) {
   const boardHeight = boardDimensions.height ?? 0;
   const normalizedDimension = (boardWidth + boardHeight) / 2;
   const range = Math.floor(normalizedDimension * 0.03);
-  console.log(clickCoords);
   return (
     <div
+      data-testid="board-menu"
       className=" z-999 transition-all duration-400"
       style={{
         position: "absolute",
@@ -41,7 +41,7 @@ export function BoardMenu({ clickCoords, boardDimensions }: BoardMenuProps) {
           {characters.map((character) => {
             const lowerCaseName = character.name.toLowerCase();
             return (
-              <li>
+              <li data-testid="character-menu-item">
                 <button
                   onClick={() => {
                     handleVerify(character.id, clickCoords);
