@@ -1,14 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
 import type {
+  Character,
   Scene,
   SceneUniqueField,
   SceneUniqueIdentifier,
 } from "@app/types";
 import { apiClient } from "../../api/api";
-import { useQuery } from "@tanstack/react-query";
 
-const getScene = async (
+export const getScene = async (
   identifier: SceneUniqueIdentifier,
-): Promise<{ scene: Scene }> => {
+): Promise<{
+  scene: Omit<Scene, "characters"> & {
+    characters: Omit<Character, "coords">[];
+  };
+}> => {
   const identifierKey = Object.keys(identifier)[0] as SceneUniqueField;
   const value = identifier[identifierKey];
   const response = await apiClient.get(`/scenes/${identifierKey}/${value}`);

@@ -16,8 +16,8 @@ const characters_Images: Record<string, string> = {
   WOOF: CharacterWoof,
 };
 
-type CharactersStrip = {
-  characters: Character[];
+type CharactersStripProps = {
+  characters: Omit<Character, "coords">[];
   isLoading: boolean;
   error: Error | null;
   guessedCharacters: Character[];
@@ -28,7 +28,7 @@ export function CharactersStrip({
   isLoading,
   error,
   guessedCharacters,
-}: CharactersStrip): JSX.Element {
+}: CharactersStripProps): JSX.Element {
   return (
     <div className="max-w-130 w-[calc(100%-20px)] sticky mx-auto mt-10 top-0 sm:top-2 z-9999 py-1  overflow-x-auto">
       {error ? (

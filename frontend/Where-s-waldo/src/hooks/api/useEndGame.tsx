@@ -1,8 +1,8 @@
 import type { EndSessionResponse } from "@app/types";
-import { apiClient } from "../../api/api";
 import { useMutation } from "@tanstack/react-query";
+import { apiClient } from "../../api/api";
 
-const endGame = async ({
+export const endGame = async ({
   sessionToken,
 }: {
   sessionToken: string;

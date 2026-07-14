@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { apiClient } from "../../api/api";
 
-const startGame = async (): Promise<{ sessionToken: string }> => {
+export const startGame = async (): Promise<{ sessionToken: string }> => {
   const response = await apiClient.post<{ sessionToken: string }>(
     "/games/start",
   );

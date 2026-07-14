@@ -1,18 +1,19 @@
 import { useCallback, useEffect, useState } from "react";
-import { Timer } from "../components/playground/Timer/Timer";
-import { WaldoBoard } from "../components/playground/WaldoBoard/WaldoBoard";
+import { Timer } from "../components/playground/Timer/Timer"; //
+import { WaldoBoard } from "../components/playground/WaldoBoard/WaldoBoard"; //
 import { GoBackButton } from "../components/shared/GoBackButton";
-import { useScene } from "../hooks/api/useScene";
+import { useScene } from "../hooks/api/useScene"; //
 import { useParams } from "react-router";
-import type { Character, Scene } from "@app/types";
-import { useStartGame } from "../hooks/api/useStartGame";
-import { useEndGame } from "../hooks/api/useEndGame";
-import { useVerify } from "../hooks/api/useVerify";
+import type { Character, Scene } from "@app/types"; //
+import { useStartGame } from "../hooks/api/useStartGame"; //
+import { useEndGame } from "../hooks/api/useEndGame"; //
+import { useVerify } from "../hooks/api/useVerify"; //
 import { PlayGroundContext } from "../contexts/PlayGroundContext";
-import { CharactersStrip } from "../components/playground/CharactersStrip";
-import { WinDialog } from "../components/playground/dialogs/WinDialog/WinDialog";
-import { useUser } from "../contexts/UserContext";
-import { useCreateScore } from "../hooks/api/useCreateScore";
+import { CharactersStrip } from "../components/playground/CharactersStrip"; //
+import { WinDialog } from "../components/playground/dialogs/WinDialog/WinDialog"; //
+import { useUser } from "../contexts/UserContext"; //
+import { useCreateScore } from "../hooks/api/useCreateScore"; //
+
 import successAudio from "../assets/audios/correct_answer.mp3";
 import failureAudio from "../assets/audios/wrong_answer.mp3";
 
@@ -24,11 +25,7 @@ export function PlayGround() {
   const [guessedCharacters, setGuessedCharacters] = useState<Character[]>([]);
   const { user } = useUser();
   const { mutate: createScore } = useCreateScore();
-  const {
-    mutate: start,
-
-    data: gameStartData,
-  } = useStartGame();
+  const { mutate: start, data: gameStartData } = useStartGame();
   const {
     mutate: end,
 
@@ -40,13 +37,13 @@ export function PlayGround() {
 
   //const isReadyToStartGame: boolean =
   // !isStartingPending && gameStartData?.sessionToken && isReadytoStartSession;
-  const isGameEnded: boolean = !!endGameData; // the opposite of isGameEnded is not isGameRunning
-  const isGameRunning: boolean = !endGameData && !!gameStartData;
+
   const guessedAllCharacters: boolean =
     guessedCharacters.length === scene?.characters?.length;
-
   const hasWon = guessedAllCharacters && duration < 60 * 60 * 2;
-
+  
+  const isGameEnded: boolean = !!endGameData; // the opposite of isGameEnded is not isGameRunning
+  const isGameRunning: boolean = !endGameData && !!gameStartData && !isLoading;
   const unGuessedCharacters: Omit<Character, "coords">[] =
     scene?.characters?.filter((c1) =>
       guessedCharacters.every((c2) => c1.id !== c2.id),
@@ -119,7 +116,6 @@ export function PlayGround() {
     },
     [verify, gameStartData?.sessionToken],
   );
-
   return (
     <PlayGroundContext
       value={{ handleVerify, unGuessedCharacters, guessedCharacters }}
