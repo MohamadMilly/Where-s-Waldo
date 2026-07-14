@@ -40,7 +40,7 @@ export function CharactersStrip({
         </div>
       ) : (
         <ul className="w-full flex gap-1 py-1">
-          {characters.map((character: Character) => {
+          {characters.map((character: Omit<Character, "coords">) => {
             const isGuessed = guessedCharacters.some(
               (c) => c.name === character.name,
             );
