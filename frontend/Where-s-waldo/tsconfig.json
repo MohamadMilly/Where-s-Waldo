@@ -11,5 +11,6 @@
     "paths": {
       "@app/types": ["../../shared-types"]
     }
-  }
+  },
+  "exclude": ["src/**/*.spec.ts", "src/**/*.test.ts", "**/__tests__/*"]
 }
