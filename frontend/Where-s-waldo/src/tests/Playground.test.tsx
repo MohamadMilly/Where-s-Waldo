@@ -191,7 +191,7 @@ describe("Testing PlayGround after mocking the mutation , queries and child comp
   });
   it("if isValid is false , then the button should not be deleted from the boardMenu", async () => {
     const user = userEvent.setup();
-    mockMutate.mockReturnValue(giveuseVerifyMutationCallBack(results[2]));
+    mockMutate.mockImplementation(giveuseVerifyMutationCallBack(results[2]));
     vi.mocked(useScene).mockReturnValue(mockedSceneHookResult);
     renderPlayGroundWithContext(
       <UserContext value={{ user: null, token: null, storeUser: () => {} }}>
